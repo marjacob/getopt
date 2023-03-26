@@ -1,0 +1,43 @@
+---
+AccessModifierOffset: -8
+AlignEscapedNewlines: Left
+AllowAllParametersOfDeclarationOnNextLine: false
+AllowShortBlocksOnASingleLine: Empty
+AllowShortFunctionsOnASingleLine: Empty
+AlwaysBreakAfterReturnType: All
+AlwaysBreakBeforeMultilineStrings: true
+AlwaysBreakTemplateDeclarations: Yes
+BinPackArguments: false
+BinPackParameters: false
+BreakBeforeBraces: WebKit
+BreakConstructorInitializers: AfterColon
+ConstructorInitializerAllOnOneLineOrOnePerLine: true
+ForEachMacros: [TEST_CLASS, TEST_METHOD]
+IncludeBlocks: Regroup
+IncludeCategories:
+  - # Local SDK version header
+    Regex: '^"targetver\.h(pp)?"$'
+    Priority: -2
+  - # System SDK header
+    Regex: '^<windows\.h>$'
+    Priority: -1
+  - # Local project headers
+    Regex: '^".+"$'
+    Priority: 1
+  - # Library headers
+    Regex: '^<.+/.+\..+>$'
+    Priority: 3
+  - # System headers
+    Regex: '^<.+\..+>$'
+    Priority: 2
+  - # STL headers
+    Regex: '^<.+>$'
+    Priority: 4
+IncludeIsMainRegex: _(impl|test)?$
+IndentWidth: 8
+KeepEmptyLinesAtTheStartOfBlocks: false
+PenaltyReturnTypeOnItsOwnLine: 0
+PointerAlignment: Right
+SpaceAfterTemplateKeyword: false
+UseTab: ForIndentation
+...

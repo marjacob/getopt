@@ -26,9 +26,38 @@
  *
  ******************************************************************************/
 
-#include "testfx.h"
-#include "getopt.h"
+#ifndef INCLUDED_GETOPT_PORT_H
+#define INCLUDED_GETOPT_PORT_H
 
-int main(int argc, char* argv[]) {
-  return run_tests();
+#include <wchar.h>
+
+#if defined(__cplusplus)
+extern "C" {
+#endif
+
+#define no_argument 1
+#define required_argument 2
+#define optional_argument 3
+
+extern wchar_t* optarg;
+extern int optind, opterr, optopt;
+
+struct option {
+  const wchar_t* name;
+  int has_arg;
+  int* flag;
+  int val;
+};
+
+int getopt(int argc, wchar_t* const argv[], const wchar_t* optstring);
+
+int getopt_long(int argc, wchar_t* const argv[],
+  const wchar_t* optstring, const struct option* longopts, int* longindex);
+
+void getopt_reset(void);
+
+#if defined(__cplusplus)
 }
+#endif
+
+#endif // INCLUDED_GETOPT_PORT_H
